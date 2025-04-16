@@ -17,7 +17,7 @@ conda init bash
 #conda env list
 conda activate scbac 
 
-
+# we replaced the blast_db (not eu anymore in 16 april)
 
 conda activate scbac
 module load STAR
@@ -32,14 +32,14 @@ Rscript /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/software/PRISM
 --star_path  /data/leuven/software/biomed/wice_icelake_rocky8/2021a/software/STAR/2.7.11a-GCC-10.3.0/bin/STAR \
 --star_genome_dir /lustre1/project/stg_00080/vrc/REF/Gencode.v47/STAR/ \
 --blast_path /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/software/ncbi-blast-2.16.0+/bin/blastn \
---blast_db_path /lustre1/project/stg_00080/vrc/Projects/Project_Microbiome/DB/Blast/nt_euk \
+--blast_db_path /lustre1/project/stg_00080/vrc/Projects/Project_Microbiome/DB/DB_nt/nt \
 --prism_path /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/software/ \
 --fq1_end .fa \
 --paired F --model_org_taxids /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/DB/Blast/model_org_taxids.txt
 
     
 
-echo "end done D18 s16 database 2"
+echo "end done D18 s16 database 2 and blast database NT"
 exit
 
 	--sample ${sample}  \

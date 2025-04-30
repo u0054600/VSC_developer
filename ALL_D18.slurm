@@ -1,15 +1,16 @@
 #!/bin/bash -l
-#SBATCH -A lp_big_wice_cpu
-#SBATCH -p dedicated_big_bigmem 
+#SBATCH -A lp_dila
 #SBATCH --nodes=1 --ntasks-per-node=16
 #SBATCH --time=72:00:00
 #SBATCH --cluster=wice
 #SBATCH --cpus-per-task=1
-#SBATCH -o out.D18.dbs.s16.%J.out.txt
-#SBATCH -e out.D18.dbs.s16.%J.err.txt
+#SBATCH -o out.D18.dbs.s20.%J.out.txt
+#SBATCH -e out.D18.dbs.s20.%J.err.txt
 #SBATCH --mem 124G
 
 #15 april change of database and change of project Lp_Dila 
+# in s17 we opened the permissions of tax.db.tar.gz and we loaded module load  SQLite
+
 
 source /user/leuven/301/vsc30196/.bashrc
 eval "$(conda shell.bash hook)"
@@ -21,9 +22,10 @@ conda activate scbac
 
 conda activate scbac
 module load STAR
+module load  SQLite
 sample=D18
 
-Rscript /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/software/PRISM.s16.R \
+Rscript /user/leuven/301/vsc30196/vrc/Projects/Project_Microbiome/software/PRISM.s20.R \
 --sample D18 \
 --data_path /user/leuven/301/vsc30196/vrc/Projects//Project_Microbiome/Run/samples/D18/ \
 --kraken_path /lustre1/project/stg_00080/vrc/software/BBCondaS/envs/scbac/bin/kraken2 \
